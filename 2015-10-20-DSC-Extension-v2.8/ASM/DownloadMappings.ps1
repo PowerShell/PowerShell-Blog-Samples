@@ -23,11 +23,10 @@ function New-XAzureVmDscExtensionJson
         [string]
         $configurationName,
 
-        [Parameter(Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
         [ValidateSet('4.0','latest','5.0PP')]
         [string]
-        $WmfVersion,
+        $WmfVersion = 'latest',
 
         [AllowNull()]
         [hashtable]
