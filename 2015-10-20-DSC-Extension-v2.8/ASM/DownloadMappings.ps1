@@ -23,10 +23,11 @@ function New-XAzureVmDscExtensionJson
         [string]
         $configurationName,
 
+        [Parameter(Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
         [ValidateSet('4.0','latest','5.0PP')]
         [string]
-        $WmfVersion = 'latest',
+        $WmfVersion,
 
         [AllowNull()]
         [hashtable]
@@ -132,7 +133,7 @@ $modulesUrl = Get-XAzureDscPublishedModulesUrl -blobName $blobName -configuratio
 Write-Verbose -Message "ModulesUrl: $modulesUrl" -Verbose
 
 $PublicConfigurationJson = New-XAzureVmDscExtensionJson -moduleName $moduleName -modulesUrl $modulesUrl `
-    -properties @{DestinationPath = 'C:\test'} -configurationName $ConfigurationName -DownloadMappings @{'WMF_4.0-Windows_6.1-x64' = 'http://mystorage.blob.core.windows.net/mypubliccontainer/Windows6.1-KB2819745-x64-MultiPkg.msu'}
+    -configurationName $ConfigurationName -DownloadMappings @{'WMF_4.0-Windows_6.1-x64' = 'https://mystorage.blob.core.windows.net/mypubliccontainer/Windows6.1-KB2819745-x64-MultiPkg.msu'}
 Write-Verbose -Message "PublicConfigurationJson: $PublicConfigurationJson" -Verbose
 
 $vm = get-azurevm -ServiceName $serviceName -Name $vmName
