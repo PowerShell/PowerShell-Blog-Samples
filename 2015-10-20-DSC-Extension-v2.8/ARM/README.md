@@ -3,3 +3,4 @@ This is the sample for the [Azure DSC Extension 2.8 & How to map downloads of th
 
 # How to use the sample
 * Download all the files in the folder to the same folder and open the solution file in Visual Studio 2015.  See the above blog for exact details
+* Copy the files from [Tools](https://github.com/PowerShell/PowerShell-Blog-Samples/tree/master/2019-09-30-DSC-Extension-v2.7/ARM/WmfSelection/Tools) to .\DownloadMapping\Tools
